@@ -1,0 +1,14 @@
+-- Drop and recreate classes table with correct UUID type
+DROP TABLE IF EXISTS classes CASCADE;
+
+CREATE TABLE classes (
+  id BIGSERIAL PRIMARY KEY,
+  class_name VARCHAR(255) NOT NULL,
+  section VARCHAR(100) NOT NULL,
+  subject VARCHAR(255),
+  room VARCHAR(100),
+  class_code VARCHAR(10) UNIQUE NOT NULL,
+  teacher_id UUID NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
